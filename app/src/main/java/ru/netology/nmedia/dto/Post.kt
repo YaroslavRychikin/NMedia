@@ -1,12 +1,12 @@
 package ru.netology.nmedia.dto
-data class Post(val id:Int,
-           val author:String,
-           val content:String,
-           val published:String,
-           val likes:Int,
-           val shares:Int,
-           val views:Int,
-           val likedByMe:Boolean
+data class Post(val id:Int = 0,
+           val author:String = "Me",
+           val content:String = " ",
+           val published:String = "now",
+           val likes:Int = 0,
+           val shares:Int = 0,
+           val views:Int = 0,
+           val likedByMe:Boolean = false
 )
 fun logekForNumbers(number:Int) = when(number) {
     in 1100..9999 ->  "${number / 1000}.${number / 100 % 10} K"

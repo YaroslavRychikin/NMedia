@@ -62,10 +62,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/small_common_spasing"
         android:paddingBottom="@dimen/small_common_spasing"
+        android:paddingStart="@dimen/common_spacing"
+        android:paddingEnd="@dimen/common_spacing"
         tools:text="@sample/posts.json/data/content"
         app:layout_constraintTop_toBottomOf="@id/barrier"
-        app:layout_constraintStart_toStartOf="@id/barrier"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintStart_toStartOf="@id/avatar" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier_for_widget"

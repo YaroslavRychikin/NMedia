@@ -6,4 +6,6 @@
     <string name="icon_for_views" translatable="false">Icon for views</string>
     <string name="icon_for_share" translatable="false">Icon for share</string>
     <string name="icon_for_like" translatable="false">Icon for like</string>
+    <string name="menu_remove">Remove</string>
+    <string name="menu_redact">Redact</string>
 </resources>

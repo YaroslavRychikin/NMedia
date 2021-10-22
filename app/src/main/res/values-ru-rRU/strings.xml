@@ -2,4 +2,6 @@
 <resources>
     <string name="app_name">НМедиа 1.2</string>
     <string name="nmedia">НМедиа!</string>
+    <string name="menu_remove">Удалить</string>
+    <string name="menu_redact">Редактировать</string>
 </resources>
