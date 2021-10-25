@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
                 setText(post.content)
             }
         }
-        binding.cancel.visibility = View.INVISIBLE
+        binding.cancel.visibility = View.GONE
 
         binding.cancel.setOnClickListener { can ->
             can.visibility = View.INVISIBLE
