@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         binding.cancel.visibility = View.GONE
 
         binding.cancel.setOnClickListener { can ->
-            can.visibility = View.INVISIBLE
+            can.visibility = View.GONE
             with(binding.editContent) {
                 setText("")
                 clearFocus()
