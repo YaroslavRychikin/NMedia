@@ -41,12 +41,11 @@ class PostViewHolder(
             author.text = post.author
             published.text = post.published
             content.text = post.content
-            likesCount.text = logekForNumbers(post.likes)
-            sharesCount.text = logekForNumbers(post.shares)
-            viewsCount.text = logekForNumbers(post.views)
-            iconForLike.setImageResource(
-                if (post.likedByMe) R.drawable.ic_baseline_favorite_24 else R.drawable.ic_baseline_favorite_border_24
-            )
+            iconForLike.text = logekForNumbers(post.likes)
+            iconForShare.text = logekForNumbers(post.shares)
+            iconForViews.text = logekForNumbers(post.views)
+            iconForLike.isChecked = post.likedByMe
+
             iconForLike.setOnClickListener {
                 onActionListener.onLike(post)
             }
