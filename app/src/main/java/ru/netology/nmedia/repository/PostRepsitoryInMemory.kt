@@ -48,6 +48,7 @@ class PostRepositoryInMemoryImpl : PostRepository{
             author = "Нетология. Университет интернет-профессий будущего",
             content = "В данном посте мы обсудим идею...",
             published = "30 марта 18:36",
+            urlVideo = "https://www.youtube.com/watch?v=WhWc3b3KhnY",
             likes = 100,
             shares = 10,
             views = 20,
@@ -63,6 +64,7 @@ class PostRepositoryInMemoryImpl : PostRepository{
                 likes = if(!it.likedByMe) it.likes + 1 else it.likes - 1) else it
         }
     }
+
 
     override fun shareById(id: Int) {
         data.value = data.value?.map{

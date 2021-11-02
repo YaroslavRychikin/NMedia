@@ -25,4 +25,9 @@
         <item name="android:minWidth">@dimen/common_spacing</item>
         <item name="android:minHeight">@dimen/common_spacing</item>
     </style>
+    <style name="Widget.AppThem.ForButtonOnVideo" parent="Widget.MaterialComponents.Button.TextButton.Icon">
+        <item name="iconTint">@color/purple_200</item>
+        <item name="android:minWidth">@dimen/common_spacing</item>
+        <item name="android:minHeight">@dimen/common_spacing</item>
+    </style>
 </resources>

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.netology.nmedia.R
 import ru.netology.nmedia.dto.logekForNumbers
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import ru.netology.nmedia.databinding.CardPostBinding
@@ -14,6 +15,7 @@ import ru.netology.nmedia.dto.Post
 interface OnActionListener {
     fun onRedact(post: Post) = Unit
     fun onRemove(post: Post) = Unit
+    fun onVideo(post: Post) = Unit
     fun onLike(post: Post) = Unit
     fun onShare(post: Post) = Unit
 }
@@ -45,7 +47,16 @@ class PostViewHolder(
             iconForShare.text = logekForNumbers(post.shares)
             iconForViews.text = logekForNumbers(post.views)
             iconForLike.isChecked = post.likedByMe
-
+            if (post.urlVideo == " "){
+                image.visibility = View.GONE
+                buttonPlay.visibility = View.GONE
+            }
+            image.setOnClickListener {
+                onActionListener.onVideo(post)
+            }
+            buttonPlay.setOnClickListener{
+                onActionListener.onVideo(post)
+            }
             iconForLike.setOnClickListener {
                 onActionListener.onLike(post)
             }
