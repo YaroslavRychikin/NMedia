@@ -70,37 +70,36 @@
         app:layout_constraintTop_toBottomOf="@id/barrier"
         app:layout_constraintStart_toStartOf="@id/avatar" />
 
-    <ImageView
-        android:id="@+id/image"
+    <FrameLayout
+        android:id="@+id/video_and_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_click"
         app:layout_constraintEnd_toEndOf="@id/menu"
         app:layout_constraintStart_toStartOf="@id/avatar"
-        app:layout_constraintTop_toBottomOf="@+id/content"
-        android:contentDescription="@string/image_of_video"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/content">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_play"
-        style="@style/Widget.AppThem.ForButtonOnVideo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/common_spacing"
-        android:background="@android:color/transparent"
-        android:checkable="true"
-        android:contentDescription="@string/button_play"
-        app:icon="@drawable/ic_baseline_play_24"
-        app:layout_constraintStart_toStartOf="@id/image"
-        app:layout_constraintTop_toTopOf="@id/image"
-        app:layout_constraintEnd_toEndOf="@id/image"
-        app:layout_constraintBottom_toBottomOf="@id/image"
-        />
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/image_of_video"
+            android:src="@drawable/ic_click" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_play"
+            style="@style/Widget.AppThem.ForButtonOnVideo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:checkable="true"
+            android:contentDescription="@string/button_play"
+            app:icon="@drawable/ic_baseline_play_24" />
+    </FrameLayout>
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier_for_widget"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="image"
+        app:constraint_referenced_ids="video_and_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

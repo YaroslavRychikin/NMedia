@@ -1,10 +1,19 @@
 package ru.netology.nmedia.repository
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import ru.netology.nmedia.dto.Post
 
-class PostRepositoryInMemoryImpl : PostRepository{
+class PostRepositorySharePrefsImpl(
+    context: Context,
+): PostRepository {
+    private val gson = Gson()
+    private val prefs = context.getSharedPreferences("repo", Context.MODE_PRIVATE)
+    private val type = TypeToken.getParameterized(List::class.java, Post::class.java).type
+    private val key = "posts"
     private var nextId = 1
     private var posts = listOf(
         Post(
@@ -57,6 +66,13 @@ class PostRepositoryInMemoryImpl : PostRepository{
     ).reversed()
     private val data = MutableLiveData(posts)
 
+    init{
+        prefs.getString(key, null)?.let{
+            posts = gson.fromJson(it, type)
+            data.value = posts
+        }
+    }
+
     override fun getAll(): LiveData<List<Post>> = data
 
     override fun likeById(id: Int) {
@@ -65,6 +81,7 @@ class PostRepositoryInMemoryImpl : PostRepository{
                 likes = if(!it.likedByMe) it.likes + 1 else it.likes - 1) else it
         }
         data.value = posts
+        sync()
     }
 
 
@@ -73,11 +90,13 @@ class PostRepositoryInMemoryImpl : PostRepository{
             if (it.id == id) it.copy(shares = it.shares + 1) else it
         }
         data.value = posts
+        sync()
     }
 
     override fun removeById(id: Int) {
         posts = posts.filter{it.id != id }
         data.value = posts
+        sync()
     }
 
     override fun save(post: Post) {
@@ -96,7 +115,15 @@ class PostRepositoryInMemoryImpl : PostRepository{
             if (it.id != post.id) it else it.copy(content = post.content)
         }
         data.value = posts
+        sync()
     }
 
     override fun redact(post: Post){}
+
+    private fun sync(){
+        with(prefs.edit()){
+            putString(key, gson.toJson(posts))
+            apply()
+        }
+    }
 }
