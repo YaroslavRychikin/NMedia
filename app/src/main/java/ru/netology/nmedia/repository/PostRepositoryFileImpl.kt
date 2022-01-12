@@ -13,11 +13,11 @@ class PostRepositoryFileImpl(
     private val gson = Gson()
     private val type = TypeToken.getParameterized(List::class.java, Post::class.java).type
     private val filename = "posts.json"
-    private var nextId = 1
+
 
     private var posts = listOf(
         Post(
-            id = nextId++,
+            id = 1,
             author = "Нетология. Университет интернет-профессий будущего",
             content = "Привет, это новая Нетология! Когда-то Нетология начиналась с интен...",
             published = "1 марта 18:36",
@@ -26,7 +26,7 @@ class PostRepositoryFileImpl(
             views = 100_100,
             likedByMe = false
         ),
-        Post(id = nextId++,
+        Post(id = 2,
             author = "Нетология. Университет интернет-профессий будущего",
             content = "В данном посте мы обсудим идею...",
             published = "30 марта 18:36",
