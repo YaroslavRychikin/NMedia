@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/common_spacing">
+    android:layout_width="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/card_post"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/common_spacing">
 
-    <ImageView
+        <ImageView
         android:id="@+id/avatar"
         android:layout_width="48dp"
         android:layout_height="48dp"
@@ -16,7 +20,7 @@
         android:contentDescription="@string/avatar"/>
 
 
-    <TextView
+        <TextView
         android:id="@+id/author"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -29,7 +33,7 @@
         app:layout_constraintStart_toEndOf="@id/avatar"
         app:layout_constraintTop_toTopOf="@id/avatar" />
 
-    <TextView
+        <TextView
         android:id="@+id/published"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -38,7 +42,7 @@
         app:layout_constraintBottom_toBottomOf="@id/avatar"
         app:layout_constraintTop_toBottomOf="@id/author" />
 
-    <com.google.android.material.button.MaterialButton
+        <com.google.android.material.button.MaterialButton
         android:id="@+id/menu"
         android:checkable="true"
         android:layout_width="24dp"
@@ -51,14 +55,14 @@
         android:contentDescription="@string/open_menu"
         style="@style/Widget.AppThem.ForSystem"/>
 
-    <androidx.constraintlayout.widget.Barrier
+        <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier"
         app:barrierDirection="bottom"
         app:constraint_referenced_ids="avatar,published"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <TextView
+        <TextView
         android:id="@+id/content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -70,7 +74,7 @@
         app:layout_constraintTop_toBottomOf="@id/barrier"
         app:layout_constraintStart_toStartOf="@id/avatar" />
 
-    <FrameLayout
+        <FrameLayout
         android:id="@+id/video_and_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -96,14 +100,14 @@
             android:contentDescription="@string/button_play"
             app:icon="@drawable/ic_baseline_play_24" />
     </FrameLayout>
-    <androidx.constraintlayout.widget.Barrier
+        <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier_for_widget"
         app:barrierDirection="bottom"
         app:constraint_referenced_ids="video_and_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <com.google.android.material.button.MaterialButton
+        <com.google.android.material.button.MaterialButton
         android:id="@+id/icon_for_like"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -117,7 +121,7 @@
         style="@style/Widget.AppThem.LikeButton"
         />
 
-    <com.google.android.material.button.MaterialButton
+        <com.google.android.material.button.MaterialButton
         android:id="@+id/icon_for_share"
         style="@style/Widget.AppThem.ForSystem"
         android:layout_width="wrap_content"
@@ -131,7 +135,7 @@
         app:layout_constraintTop_toTopOf="@id/icon_for_like"
         tools:text="@sample/posts.json/data/shares" />
 
-    <com.google.android.material.button.MaterialButton
+        <com.google.android.material.button.MaterialButton
         android:id="@+id/icon_for_views"
         android:checkable="true"
         android:layout_width="wrap_content"
@@ -145,4 +149,5 @@
         tools:text="@sample/posts.json/data/views"
         style="@style/Widget.AppThem.ForSystem"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

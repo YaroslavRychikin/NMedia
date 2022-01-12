@@ -9,7 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
-import ru.netology.nmedia.databinding.CardPostBinding
+import ru.netology.nmedia.databinding.FragmentCardPostBinding
 import ru.netology.nmedia.dto.Post
 
 interface OnActionListener {
@@ -18,13 +18,14 @@ interface OnActionListener {
     fun onVideo(post: Post) = Unit
     fun onLike(post: Post) = Unit
     fun onShare(post: Post) = Unit
+    fun onPost(post: Post) = Unit
 }
 
 class PostsAdapter(private val onActionListener: OnActionListener)
     : ListAdapter<Post, PostViewHolder>(PostDiffCallback()){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
-        val binding = CardPostBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = FragmentCardPostBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return PostViewHolder(binding, onActionListener)
     }
 
@@ -35,7 +36,7 @@ class PostsAdapter(private val onActionListener: OnActionListener)
 }
 
 class PostViewHolder(
-    private val binding: CardPostBinding,
+    private val binding: FragmentCardPostBinding,
     private val onActionListener: OnActionListener
 ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(post: Post) {
@@ -80,6 +81,15 @@ class PostViewHolder(
                         }
                     }
                 }.show()
+            }
+            author.setOnClickListener{
+                onActionListener.onPost(post)
+            }
+            published.setOnClickListener{
+                onActionListener.onPost(post)
+            }
+            content.setOnClickListener{
+                onActionListener.onPost(post)
             }
         }
     }

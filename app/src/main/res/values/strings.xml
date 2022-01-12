@@ -11,4 +11,5 @@
     <string name="menu_redact">Redact</string>
     <string name="button_play" translatable="false">PlayButton</string>
     <string name="image_of_video" translatable="false">Image Of Video</string>
+    <string name="create_new_post">Create New Post</string>
 </resources>

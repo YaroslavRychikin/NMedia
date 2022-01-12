@@ -28,33 +28,6 @@ class PostRepositoryFileImpl(
         ),
         Post(id = nextId++,
             author = "Нетология. Университет интернет-профессий будущего",
-            content = "Сегодня мы разберем, как пройти регестрацию...",
-            published = "2 марта 18:36",
-            likes = 1,
-            shares = 567,
-            views = 10,
-            likedByMe = false
-        ),
-        Post(id = nextId++,
-            author = "Нетология. Университет интернет-профессий будущего",
-            content = "Как вы можете записаться на курсы. Вам нужно...",
-            published = "15 марта 18:36",
-            likes = 100_000,
-            shares = 100_111,
-            views = 10,
-            likedByMe = false
-        ),
-        Post(id = nextId++,
-            author = "Нетология. Университет интернет-профессий будущего",
-            content = "Новой темой станет ново введение в...",
-            published = "20 марта 18:36",
-            likes = 10_001,
-            shares = 10_000,
-            views = 1000,
-            likedByMe = false
-        ),
-        Post(id = nextId++,
-            author = "Нетология. Университет интернет-профессий будущего",
             content = "В данном посте мы обсудим идею...",
             published = "30 марта 18:36",
             urlVideo = "https://www.youtube.com/watch?v=WhWc3b3KhnY",
@@ -108,7 +81,7 @@ class PostRepositoryFileImpl(
         if (post.id == 0) {
             posts = listOf(
                 post.copy(
-                    id = nextId++,
+                    id = posts.lastOrNull()?.id?.inc() ?: 1,
                     likedByMe = false,
                 )
             ) + posts
