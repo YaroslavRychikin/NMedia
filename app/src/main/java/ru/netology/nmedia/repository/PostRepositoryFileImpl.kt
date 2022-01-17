@@ -81,7 +81,7 @@ class PostRepositoryFileImpl(
         if (post.id == 0) {
             posts = listOf(
                 post.copy(
-                    id = posts.lastOrNull()?.id?.inc() ?: 1,
+                    id = posts.firstOrNull()?.id?.inc() ?: 1,
                     likedByMe = false,
                 )
             ) + posts
