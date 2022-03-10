@@ -48,7 +48,7 @@ class PostViewHolder(
             iconForShare.text = logekForNumbers(post.shares)
             iconForViews.text = logekForNumbers(post.views)
             iconForLike.isChecked = post.likedByMe
-            if (post.urlVideo == " "){
+            if (post.urlVideo == ""){
                 videoAndButton.visibility = View.GONE
             }
             image.setOnClickListener {

@@ -15,7 +15,7 @@ import ru.netology.nmedia.activity.CardPostFragment.Companion.postArg
 import ru.netology.nmedia.activity.NewPostFragment.Companion.contentArg
 import ru.netology.nmedia.dto.Post
 import ru.netology.nmedia.adapter.OnActionListener
-import ru.netology.nmedia.repository.PostViewModel
+import ru.netology.nmedia.viewModel.PostViewModel
 import ru.netology.nmedia.adapter.PostsAdapter
 import ru.netology.nmedia.databinding.FragmentFeedBinding
 

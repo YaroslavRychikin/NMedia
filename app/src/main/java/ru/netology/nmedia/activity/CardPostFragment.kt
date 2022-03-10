@@ -14,7 +14,7 @@ import ru.netology.nmedia.R
 import ru.netology.nmedia.activity.NewPostFragment.Companion.contentArg
 import ru.netology.nmedia.databinding.FragmentCardPostBinding
 import ru.netology.nmedia.dto.logekForNumbers
-import ru.netology.nmedia.repository.PostViewModel
+import ru.netology.nmedia.viewModel.PostViewModel
 
 class CardPostFragment: Fragment() {
     companion object{
@@ -47,7 +47,7 @@ class CardPostFragment: Fragment() {
                     iconForShare.text = logekForNumbers(post.shares)
                     iconForViews.text = logekForNumbers(post.views)
                     iconForLike.isChecked = post.likedByMe
-                    if (post.urlVideo == " ") {
+                    if (post.urlVideo == "") {
                         videoAndButton.visibility = View.GONE
                     }
                     iconForLike.setOnClickListener {
